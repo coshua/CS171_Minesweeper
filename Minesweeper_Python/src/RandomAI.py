@@ -23,7 +23,7 @@ class RandomAI ( AI ):
 		self.__moveCount = 0
 
 
-	def getAction(self, number: int) -> "Action Object":
+	def getAction(self, number: int):
 		while self.__moveCount < 5:
 			action = AI.Action(random.randrange(1, len(AI.Action)))
 			x = random.randrange(self.__colDimension)

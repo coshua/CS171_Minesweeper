@@ -127,7 +127,7 @@ class World():
 	###############################################
 	#				ACTIONS ON BOARD 			  #
 	###############################################
-	def __checkValidAction(self, actionObj: "Action Object") -> bool:
+	def __checkValidAction(self, actionObj) -> bool:
 		""" Check if move is valid, and if coordinates are valid, returning a boolean """
 		move = actionObj.getMove()
 		X = actionObj.getX()
@@ -139,7 +139,7 @@ class World():
 		raise ValueError
 
 
-	def __doMove(self, actionObj: "Action Object") -> bool:
+	def __doMove(self, actionObj) -> bool:
 		""" Perform a move on the game board based on given action and x, y coords """
 		""" Return True when game is over, False otherwise """
 		self.__movesMade += 1
@@ -187,7 +187,7 @@ class World():
 	#####################################################
 	#			SETTING UP THE GAME BOARD   			#
 	#####################################################
-	def __createBoard(self, inputStream: "filePointer" = None) -> None:
+	def __createBoard(self, inputStream= None) -> None:
 		""" Creates 2D tile array from first line of file and instantiates board instance variable """
 		if inputStream:
 			self.__rowDimension, self.__colDimension = [int(x) for x in inputStream.readline().split()]
@@ -201,7 +201,7 @@ class World():
 		self.__movesLimit = self.__colDimension * self.__rowDimension * 2
 
 
-	def __getFirstMove(self, inputStream: "filePointer" = None) -> "tuple of ints": 
+	def __getFirstMove(self, inputStream = None): 
 		""" Find the first move to be given to the agent, must be a "0" tile """
 		if inputStream:
 			startX, startY = [int(x)-1 for x in inputStream.readline().split()]
@@ -216,7 +216,7 @@ class World():
 		return (startX, startY)
 
 
-	def __addMines(self, inputStream: "filePointer" = None) -> None:
+	def __addMines(self, inputStream = None) -> None:
 		""" Add mines to the game board""" 
 		if inputStream:
 			for r, line in zip(range(self.__rowDimension - 1, -1, -1), inputStream.readlines()):

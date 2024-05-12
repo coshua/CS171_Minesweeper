@@ -43,9 +43,9 @@ def createWorldFile(filename: "string", rowDimension: int, colDimension: int, nu
 	
 	difficulty_name = filename.split("_", 1)[0]
 	if os.path.isdir(os.path.join(dir_name, difficulty_name)):
-	    directory_name = os.path.join(dir_name, difficulty_name)
+		directory_name = os.path.join(dir_name, difficulty_name)
 	else:
-	    directory_name = dir_name
+		directory_name = dir_name
 	
 	file_path = os.path.join(directory_name, filename+".txt")
 	print(file_path)
